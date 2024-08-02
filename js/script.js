@@ -1,15 +1,26 @@
-//stampiamo a console 100 numeri, nei quali però quelli multipli di 3 e 5 viene scritto
-//fizzbuzz, se multipli di solo 3 allora fizz infine se multipli di solo 5 allora buzz
-//se niente stampa il numero normale
+//creare un elemento che faccia da contenitore nel DOM e poi riempiamolo con i degli elementi di js
 
+// selezioniamo il contenitore nel DOM
+const container = document.getElementById('fizzbuzz-container');
+
+// stampiamo a console 100 numeri, con risultati diversi in base alle richieste
 for (let i = 1; i <= 100; i++) {
+  let output = '';
   if (i % 3 === 0 && i % 5 === 0) {
-    console.log('FizzBuzz');
+    output = 'FizzBuzz';
   } else if (i % 3 === 0) {
-    console.log('Fizz');
+    output = 'Fizz';
   } else if (i % 5 === 0) {
-    console.log('Buzz');
+    output = 'Buzz';
   } else {
-    console.log(i);
+    output = i;
   }
+
+  // Creiamo un nuovo elemento div per ogni risultato
+  const item = document.createElement('div');
+  item.className = 'fizzbuzz-item';
+  item.innerText = output;
+
+  // Aggiungi l'elemento al contenitore
+  container.appendChild(item);
 }
